@@ -3,4 +3,4 @@ __pycache__/
 .env
 backend/database/careercopilot.db
 backend/reports/generated/*.pdf
-.streamlit/
+.streamlit/secrets.toml
