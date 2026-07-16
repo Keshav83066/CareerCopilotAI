@@ -10,7 +10,22 @@ import requests
 import streamlit as st
 import os
 
-API_BASE_URL = "http://localhost:8000"
+def _get_api_base_url() -> str:
+    """
+    Resolve the backend URL so the same code works locally and when deployed.
+    Priority: Streamlit secrets (set on Streamlit Community Cloud) -> env var
+    (set on the local machine or any other host) -> localhost fallback for
+    local development.
+    """
+    try:
+        if "API_BASE_URL" in st.secrets:
+            return st.secrets["API_BASE_URL"]
+    except Exception:
+        pass
+    return os.getenv("API_BASE_URL", "http://localhost:8000")
+
+
+API_BASE_URL = _get_api_base_url()
 
 
 def load_css():
