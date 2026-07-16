@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+streamlit>=1.32
+requests
+pypdf
+fpdf2
+anthropic
+openai
+python-multipart
+pydantic
+python-dotenv

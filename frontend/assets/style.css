@@ -1,0 +1,98 @@
+/* CareerCopilot AI - "Google-inspired" Light Theme
+   Clean white background, soft rounded cards, and Google's signature
+   four-color palette used as gentle accents (not harsh/bright) so the
+   overall feel stays calm and relaxing rather than loud. */
+
+:root {
+    --gc-blue: #4285F4;
+    --gc-red: #EA4335;
+    --gc-yellow: #FBBC05;
+    --gc-green: #34A853;
+    --gc-text: #3C4043;
+    --gc-muted: #5F6368;
+    --gc-border: #E8EAED;
+    --gc-bg-soft: #F8F9FA;
+}
+
+.stApp {
+    background-color: #FFFFFF;
+    color: var(--gc-text);
+}
+
+/* Card component used across pages */
+.css-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 16px;
+    border: 1px solid var(--gc-border);
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08), 0 1px 2px rgba(60, 64, 67, 0.06);
+}
+
+/* Primary buttons - Google blue */
+.stButton>button {
+    background-color: var(--gc-blue);
+    color: #FFFFFF;
+    border-radius: 24px;
+    border: none;
+    padding: 8px 22px;
+    font-weight: 500;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stButton>button:hover {
+    background-color: #3367D6;
+    box-shadow: 0 1px 2px rgba(66, 133, 244, 0.3);
+}
+
+/* Secondary/nav buttons in the sidebar get a softer, neutral look so only
+   the active page and primary actions stand out in blue. */
+[data-testid="stSidebar"] .stButton>button[kind="secondary"] {
+    background-color: transparent;
+    color: var(--gc-text);
+    border: 1px solid transparent;
+}
+
+[data-testid="stSidebar"] .stButton>button[kind="secondary"]:hover {
+    background-color: var(--gc-bg-soft);
+    box-shadow: none;
+}
+
+[data-testid="stSidebar"] .stButton>button[kind="primary"] {
+    background-color: #E8F0FE;
+    color: var(--gc-blue);
+    box-shadow: none;
+    font-weight: 600;
+}
+
+/* Sidebar background - a very soft, relaxing off-white */
+[data-testid="stSidebar"] {
+    background-color: var(--gc-bg-soft);
+    border-right: 1px solid var(--gc-border);
+}
+
+/* Accent bar of four Google colors under the sidebar title, for a playful
+   but subtle brand touch. */
+.gc-accent-bar {
+    height: 4px;
+    width: 100%;
+    border-radius: 4px;
+    margin: 6px 0 14px 0;
+    background: linear-gradient(
+        to right,
+        var(--gc-blue) 0%, var(--gc-blue) 25%,
+        var(--gc-red) 25%, var(--gc-red) 50%,
+        var(--gc-yellow) 50%, var(--gc-yellow) 75%,
+        var(--gc-green) 75%, var(--gc-green) 100%
+    );
+}
+
+/* Success / info / warning tints reusing the Google palette softly */
+.gc-badge-blue   { background-color: #E8F0FE; color: var(--gc-blue);   border-radius: 8px; padding: 4px 10px; font-size: 13px; }
+.gc-badge-green  { background-color: #E6F4EA; color: var(--gc-green);  border-radius: 8px; padding: 4px 10px; font-size: 13px; }
+.gc-badge-yellow { background-color: #FEF7E0; color: #B06000;          border-radius: 8px; padding: 4px 10px; font-size: 13px; }
+.gc-badge-red    { background-color: #FCE8E6; color: var(--gc-red);    border-radius: 8px; padding: 4px 10px; font-size: 13px; }
+
+hr {
+    border-color: var(--gc-border) !important;
+}
